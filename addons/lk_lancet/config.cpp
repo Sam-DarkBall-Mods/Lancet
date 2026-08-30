@@ -17,7 +17,9 @@ class CfgPatches
 			"A3_Weapons_F",
 			"A3_Supplies_F_Enoch_Ammoboxes",
 			"sdreal_uav",
-			"cba_settings"
+			"cba_settings",
+			"cba_ui",
+			"cba_xeh"
 		};
 		requiredVersion = 2.22;
 		units[]=
