@@ -2,6 +2,7 @@
 #define GRID_H( num ) ( num * ( pixelGridNoUIScale * pixelH * 2 ))
 
 private _target = call lancet_fnc_searchTarget;
+private _seekerLockPicture = uiNameSpace getVariable ["DB_seeker_lock", controlNull];
 
 if ((isNil "_target") || {_target == objNull}) exitWith {
 	uiNamespace setVariable ["DB_isSlewing", false]; 
@@ -9,14 +10,15 @@ if ((isNil "_target") || {_target == objNull}) exitWith {
 	(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
 	(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
 
+	if (isNull _seekerLockPicture) exitWith {};
+
 	private _width = GRID_W(7);
 	private _height = GRID_H(7);
-		
+			
 	_seekerLockPicture ctrlSetPosition [0.5 - _width / 2, 0.5 - _height / 2, _width, _height];
 	_seekerLockPicture ctrlCommit 0.0;
 };
 
-private _seekerLockPicture = uiNameSpace getVariable ["DB_seeker_lock", controlNull];
 private _rocket = uiNamespace getVariable ["lancet_currentProjectile", objNull];
 
 [getPosASL _rocket, "", _target, speed _rocket, false, [0.0, 0.0, 0.0], 5.0] spawn lancet_fnc_guideUAV;

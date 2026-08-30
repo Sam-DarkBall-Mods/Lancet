@@ -35,17 +35,20 @@ private _cmdEH = _diag displayAddEventHandler ["KeyDown",  {
 				(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow true;
 
 				call lancet_fnc_lockTarget;
-    		} else {
-    		    uiNamespace setVariable ["DB_isSlewing", false];
+	    		} else {
+	    		    uiNamespace setVariable ["DB_isSlewing", false];
 
-				(uiNameSpace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
-				(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
-				(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
+					(uiNameSpace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
+					(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
+					(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
 
-				private _width = GRID_W(7);
-				private _height = GRID_H(7);
-		
-				_seekerLockPicture ctrlSetPosition [0.5 - _width / 2, 0.5 - _height / 2, _width, _height];
+					private _seekerLockPicture = uiNameSpace getVariable ["DB_seeker_lock", controlNull];
+					if (isNull _seekerLockPicture) exitWith {};
+
+					private _width = GRID_W(7);
+					private _height = GRID_H(7);
+			
+					_seekerLockPicture ctrlSetPosition [0.5 - _width / 2, 0.5 - _height / 2, _width, _height];
 				_seekerLockPicture ctrlCommit 0.0;
     		};
 		};
@@ -95,4 +98,4 @@ private _cmdEH = _diag displayAddEventHandler ["KeyDown",  {
 	};
 }];
 
-private _ehId = _diag displayAddEventHandler ["MouseButtonDown","uiNamespace setVariable ['mouseClick', true];"];
+// Mouse steering is handled continuously via onMouseMoving in the seeker display.
