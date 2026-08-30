@@ -4,7 +4,7 @@ params["_projectile", "_v"];
 //_objs = lineIntersectsObjs [positionCameraToWorld [0,0,0], _posProj vectorAdd (_vDirTgt vectorMultiply 200), _projectile, objNull, true, 2 + 16 + 32];
 private _currentTarget = objNull;
 private _currentOffset = [0,0,0];
-private _cameraPosASL = AGLTOASL positionCameraToWorld [0,0,0];
+private _cameraPosASL = AGLToASL positionCameraToWorld [0,0,0];
 private _intersections = lineIntersectsSurfaces [_cameraPosASL, _cameraPosASL vectorAdd (_v vectorMultiply 200), _projectile, objNull, true, 1];
 if(count _intersections > 0) then {
 	_tempTarget = _intersections # 0 # 3;

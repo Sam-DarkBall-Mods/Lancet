@@ -1,5 +1,7 @@
 #define GRID_W( num ) ( num * ( pixelGridNoUIScale * pixelW * 2 ))
 #define GRID_H( num ) ( num * ( pixelGridNoUIScale * pixelH * 2 ))
+#define UI_EXPR_INNER(value) #value
+#define UI_EXPR(value) UI_EXPR_INNER(value)
 
 class CfgPatches
 {
@@ -17,13 +19,9 @@ class CfgPatches
 			"sdreal_uav",
 			"cba_settings"
 		};
-		requiredVersion=0.1;
+		requiredVersion = 2.22;
 		units[]=
 		{
-			"lancet_dummy_mag",
-			"m_lancet_dummy",
-			"m_izdelie_dummy",
-			"izdelie_dummy_mag",
 			"Lancet_Tripod_Bag_Weapon",
 			"Lancet_Tripod_Bag_Support",
 			"lancet_tripod_launcher_o",
@@ -841,7 +839,7 @@ class lancet_seeker
 			h="safeZoneH";
 			colorText[]={1,1,1,1};
 
-			onLoad = "uiNameSpace setVariable ['DB_full_screenplus', _this # 0]";
+			onLoad = "uiNamespace setVariable ['DB_full_screenplus', _this # 0]";
 		};
 		class full_screen_picture: RscPicture
 		{
@@ -853,7 +851,7 @@ class lancet_seeker
 			h="safeZoneH";
 			colorText[]={1,1,1,1};
 
-			onLoad = "uiNameSpace setVariable ['DB_targetCross', _this # 0]";
+			onLoad = "uiNamespace setVariable ['DB_targetCross', _this # 0]";
 		};
 		class AutoLockPicture : RscPicture
         {
@@ -861,12 +859,12 @@ class lancet_seeker
 
             text = "\lk_lancet\pictures\cel.paa";
 
-			onLoad = "uiNameSpace setVariable ['DB_AutoLockPicture', _this # 0]";
+			onLoad = "uiNamespace setVariable ['DB_AutoLockPicture', _this # 0]";
 
-            x = 0.5 - GRID_W(10) / 2;
-            y = safeZoneY + GRID_H(3);
-            w = GRID_W(10);
-            h = GRID_H(2);
+            x = UI_EXPR(0.5 - GRID_W(10) / 2);
+            y = UI_EXPR(safeZoneY + GRID_H(3));
+            w = UI_EXPR(GRID_W(10));
+            h = UI_EXPR(GRID_H(2));
 
 			show = 0;
         };

@@ -184,7 +184,7 @@ while {alive _projectile and dialog} do {
 			};
 
 			if (time >= _nextGuideAt) then {
-				_posProj = AGLTOASL positionCameraToWorld [0,0,0];
+				_posProj = AGLToASL positionCameraToWorld [0,0,0];
 				private _absX = abs _ctrlX;
 				private _absY = abs _ctrlY;
 				private _yawAssist = (1 - (_absY * 0.55)) max 0.45;
@@ -255,12 +255,12 @@ while {alive _projectile and dialog} do {
 			_crtlSize = (ctrlPosition _targetCursor) # 3;
 			_crossTarget = [];
 			if(isNull _target) then {
-				_wordToScreenPos = worldToScreen ((ASLTOAGL _posWorld) vectorAdd _targetOffset);
+				_wordToScreenPos = worldToScreen ((ASLToAGL _posWorld) vectorAdd _targetOffset);
 				if(count _wordToScreenPos > 0) then {
 					_crossTarget = _wordToScreenPos vectorDiff [_crtlSize/2, _crtlSize/2];
 				};
 			} else {
-				_wordToScreenPos = (worldToScreen ((ASLTOAGL getposASl _target) vectorAdd _targetOffset)); 
+				_wordToScreenPos = (worldToScreen ((ASLToAGL getPosASL _target) vectorAdd _targetOffset));
 				if(count _wordToScreenPos > 0) then {
 					_crossTarget = _wordToScreenPos vectorDiff [_crtlSize/2, _crtlSize/2];
 				};

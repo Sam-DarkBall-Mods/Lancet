@@ -30,7 +30,7 @@ class lancet_seeker {
             colorText[] = {1,1,1,0.6};
             //colorBackground[] = {0,0,0,0};
 
-            onLoad = "uiNameSpace setVariable [""DB_seeker_lock"", (_this # 0)]";
+            onLoad = "uiNamespace setVariable [""DB_seeker_lock"", (_this # 0)]";
         };
 
         class tx_zoom: RscText

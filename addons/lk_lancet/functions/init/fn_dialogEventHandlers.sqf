@@ -30,19 +30,19 @@ private _cmdEH = _diag displayAddEventHandler ["KeyDown",  {
 
     		if (!_isSlewing) then {
     		    uiNamespace setVariable ["DB_isSlewing", true];
-				(uiNameSpace getVariable ["DB_targetCross", controlNull]) ctrlShow false;
-				(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow false;
-				(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow true;
+				(uiNamespace getVariable ["DB_targetCross", controlNull]) ctrlShow false;
+				(uiNamespace getVariable ["DB_full_screenplus", controlNull]) ctrlShow false;
+				(uiNamespace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow true;
 
 				call lancet_fnc_lockTarget;
 	    		} else {
 	    		    uiNamespace setVariable ["DB_isSlewing", false];
 
-					(uiNameSpace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
-					(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
-					(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
+					(uiNamespace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
+					(uiNamespace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
+					(uiNamespace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
 
-					private _seekerLockPicture = uiNameSpace getVariable ["DB_seeker_lock", controlNull];
+					private _seekerLockPicture = uiNamespace getVariable ["DB_seeker_lock", controlNull];
 					if (isNull _seekerLockPicture) exitWith {};
 
 					private _width = GRID_W(7);

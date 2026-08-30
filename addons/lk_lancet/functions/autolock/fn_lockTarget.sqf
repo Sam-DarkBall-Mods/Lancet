@@ -2,13 +2,13 @@
 #define GRID_H( num ) ( num * ( pixelGridNoUIScale * pixelH * 2 ))
 
 private _target = call lancet_fnc_searchTarget;
-private _seekerLockPicture = uiNameSpace getVariable ["DB_seeker_lock", controlNull];
+private _seekerLockPicture = uiNamespace getVariable ["DB_seeker_lock", controlNull];
 
 if ((isNil "_target") || {_target == objNull}) exitWith {
 	uiNamespace setVariable ["DB_isSlewing", false]; 
-	(uiNameSpace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
-	(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
-	(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
+	(uiNamespace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
+	(uiNamespace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
+	(uiNamespace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
 
 	if (isNull _seekerLockPicture) exitWith {};
 
@@ -35,9 +35,9 @@ addMissionEventHandler ["Draw3D", {
 
 		removeMissionEventHandler ["Draw3D", _thisEventHandler];
 
-		(uiNameSpace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
-		(uiNameSpace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
-		(uiNameSpace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
+		(uiNamespace getVariable ["DB_targetCross", controlNull]) ctrlShow true;
+		(uiNamespace getVariable ["DB_full_screenplus", controlNull]) ctrlShow true;
+		(uiNamespace getVariable ["DB_AutoLockPicture", controlNull]) ctrlShow false;
 
 		private _width = GRID_W(7);
 		private _height = GRID_H(7);

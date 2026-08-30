@@ -1,6 +1,3 @@
-// Campaign common includes
-#include "\A3\Missions_F_Exp\Campaign\commonDefines.inc"
-
 // Can only be run on scheduled env
 if (!canSuspend) exitWith
 {
