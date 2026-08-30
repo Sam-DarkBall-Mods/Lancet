@@ -2,26 +2,29 @@
 
 [![CI](https://github.com/Sam-DarkBall-Mods/Lancet/actions/workflows/ci.yml/badge.svg)](https://github.com/Sam-DarkBall-Mods/Lancet/actions/workflows/ci.yml)
 
-Lancet loitering munition and launcher system for Arma 3.
+This mod contains Lancet and Izdelie 53 loitering munitions. Both can be
+launched from tripod systems carried in backpacks. The control scripts handle
+the seeker display, mouse steering, speed changes, target search and target
+lock.
 
 ## Requirements
 
 - Arma 3 2.22 or newer
-- Additional runtime dependencies declared by `CfgPatches`
+- CBA_A3
+- `sdreal_uav`
 
-## Development
+## Building
 
 ```bash
+python3 -B -m unittest discover -s tests -p "test_*.py" -v
 hemtt check
 hemtt build --no-bin
-python3 -B -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-Legacy `CfgPatches`, function names, virtual PBO prefixes, and release PBO
-filenames are compatibility contracts and must not change in a patch release.
+The PBO remains `lk_lancet.pbo` with the `lk_lancet` prefix. Existing
+mission scripts depend on those names.
 
 ## License
 
-SQF, Arma configuration, and tooling are GPL-2.0-or-later. Original Arma
-models, textures, materials, animations, and audio are APL-SA. See
-[LICENSES.md](LICENSES.md) and closer notices.
+Code and configs use GPL-2.0-or-later. Original models, textures, materials,
+animations and audio use APL-SA. See [LICENSES.md](LICENSES.md).
